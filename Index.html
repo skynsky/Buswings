@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>BUSWINGS - Your Journey Begins Here</title>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="bus-loader">
+            <div class="bus">
+                <div class="bus-body"></div>
+                <div class="wheels">
+                    <div class="wheel"></div>
+                    <div class="wheel"></div>
+                </div>
+            </div>
+            <div class="road"></div>
+        </div>
+        <p>Loading your journey...</p>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav_header">
+            <div class="nav_logo">
+                <a href="#" class="logo">
+                    <i class="ri-bus-line"></i>
+                    Buswings
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="header_container">
+            <div class="header_content">
+                <div class="fade-in-up">
+                    <p class="subtitle">Solusi Mudah Perjalanan Antar Kota</p>
+                    <h1 class="main-title">
+                        Temukan Perjalanan 
+                        <span class="highlight">Terbaikmu</span> 
+                        Hari Ini!
+                    </h1>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="10000">1000</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="50">5</span>
+                            <span class="stat-label">Cities Connected</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1000">100</span>
+                            <span class="stat-label">Daily Trips</span>
+                        </div>
+                    </div>
+                    <div class="header_btns">
+                        <button class="btn btn-primary pulse" onclick="scrollTobooking()">
+                            <i class="ri-search-line"></i>
+                            Cari Tiket
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="header_image">
+                <div class="floating-bus">
+                    <img src="images/bus.png" alt="bus" class="bus-image">
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-element" style="--delay: 0s;">
+                        <i class="ri-map-pin-line"></i>
+                    </div>
+                    <div class="floating-element" style="--delay: 1s;">
+                        <i class="ri-time-line"></i>
+                    </div>
+                    <div class="floating-element" style="--delay: 2s;">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="section_container">
+            <h2 class="section_header">Why Choose Buswings?</h2>
+            <div class="services-grid">
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="ri-shield-check-line"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>Your safety is our priority with experienced drivers and well-maintained buses.</p>
+                </div>
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="ri-time-line"></i>
+                    </div>
+                    <h3>On Time</h3>
+                    <p>Punctual departures and arrivals to keep your schedule on track.</p>
+                </div>
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="ri-money-dollar-circle-line"></i>
+                    </div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing with no hidden fees for transparent booking.</p>
+                </div>
+                <div class="service-card" data-tilt>
+                    <div class="service-icon">
+                        <i class="ri-customer-service-2-line"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support for all your travel needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="section-header">
+            <div class="header-icon">
+                <i class="fas fa-bus"></i>
+            </div>
+            <h2>Pemesanan Tiket Bus</h2>
+            <p class="subtitle">Pesan tiket bus Anda dengan mudah dan cepat</p>
+        </div>
+        
+        <div class="container">
+            <div class="form-wrapper">
+                <form action="save_booking.php" method="POST" onsubmit="return processForm()" id="booking-form">
+                    <div class="form-group">
+                        <label for="nama">
+                            <i class="fas fa-user"></i>
+                            Nama Pelanggan
+                        </label>
+                        <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id_pemesan">
+                            <i class="fas fa-id-card"></i>
+                            ID (KTP/Passport/Kartu Pelajar)
+                        </label>
+                        <input type="text" id="id_pemesan" name="id_pemesan" maxlength="30" required placeholder="Masukkan nomor ID">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="terminal_asal">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Terminal Asal
+                            </label>
+                            <select id="terminal_asal" name="terminal_asal" required>
+                                <option value="">Pilih Terminal Asal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tujuan">
+                                <i class="fas fa-flag-checkered"></i>
+                                Tujuan
+                            </label>
+                            <select id="tujuan" name="tujuan" required>
+                                <option value="">Pilih Tujuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenis_bis_id">
+                            <i class="fas fa-bus-alt"></i>
+                            Jenis Bus
+                        </label>
+                        <select id="jenis_bis_id" name="jenis_bis_id" required>
+                            <option value="">Pilih Jenis Bus</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="umur">
+                                <i class="fas fa-birthday-cake"></i>
+                                Umur
+                            </label>
+                            <input type="number" id="umur" name="umur" min="1" required placeholder="Masukkan umur">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jenis_kelamin">
+                                <i class="fas fa-venus-mars"></i>
+                                Jenis Kelamin
+                            </label>
+                            <select id="jenis_kelamin" name="jenis_kelamin" required>
+                                <option value="">Pilih Jenis Kelamin</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="waktu">
+                                <i class="fas fa-clock"></i>
+                                Waktu Pemberangkatan
+                            </label>
+                            <select id="waktu" name="waktu" required>
+                                <option value="">Pilih Waktu</option>
+                                <option value="06:00">06:00 - Pagi</option>
+                                <option value="08:00">08:00 - Pagi</option>
+                                <option value="10:00">10:00 - Pagi</option>
+                                <option value="12:00">12:00 - Siang</option>
+                                <option value="14:00">14:00 - Siang</option>
+                                <option value="16:00">16:00 - Sore</option>
+                                <option value="18:00">18:00 - Sore</option>
+                                <option value="20:00">20:00 - Malam</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jumlah">
+                                <i class="fas fa-ticket-alt"></i>
+                                Jumlah Tiket
+                            </label>
+                            <input type="number" id="jumlah" name="jumlah" min="1" max="10" required onchange="generateSeatSelections()" placeholder="Jumlah tiket">
+                        </div>
+                    </div>
+
+                    <div id="seat-selections" class="seat-selection-container">
+                        <!-- Posisi duduk akan di-generate secara dinamis -->
+                    </div>
+
+                    <!-- Input hidden untuk menyimpan kode pemesanan -->
+                    <input type="hidden" id="kode_pemesanan" name="kode_pemesanan">
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-check"></i>
+                            Pesan Tiket
+                        </button>
+                        <button type="button" onclick="window.location.href='cek_status.html'" class="btn-secondary">
+                            <i class="fas fa-search"></i>
+                            Cek Status Pemesanan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer_logo">
+                        <i class="ri-bus-line"></i>
+                        Buswings
+                    </h3>
+                    <p>Solusi Mudah Perjalanan Antar Kota dengan layanan terpercaya dan harga terjangkau.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="ri-facebook-fill"></i></a>
+                        <a href="#"><i class="ri-twitter-fill"></i></a>
+                        <a href="#"><i class="ri-instagram-line"></i></a>
+                        <a href="#"><i class="ri-youtube-fill"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer_links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer_copyright">© 2025 Buswings. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+
+    <script src="main.js"></script>
+    <script src="script.js"></script>
+    <script src="confirm.js"></script>
+</body>
+</html>

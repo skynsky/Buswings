@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <title>Confirmation</title>
+</head>
+<body>
+    <!-- Ticket Confirmation Modal -->
+    <div id="ticket-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <div class="ticket-container">
+                <div class="ticket-header">
+                    <div class="ticket-logo">
+                        <i class="ri-bus-line"></i>
+                        <h2>BUSWINGS</h2>
+                    </div>
+                    <div class="ticket-status">
+                        <span class="status-badge confirmed">CONFIRMED</span>
+                    </div>
+                </div>
+                
+                <div class="ticket-info">
+                    <h3>Konfirmasi Pemesanan Tiket</h3>
+                    <div class="booking-code">
+                        <span>Kode Booking:</span>
+                        <strong id="confirm-booking-code">-</strong>
+                    </div>
+                </div>
+
+                <div class="ticket-details">
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>Nama Penumpang</label>
+                            <span id="confirm-nama">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>ID Penumpang</label>
+                            <span id="confirm-id">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>Terminal Asal</label>
+                            <span id="confirm-asal">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Terminal Tujuan</label>
+                            <span id="confirm-tujuan">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>Jenis Bus</label>
+                            <span id="confirm-bus">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Waktu Keberangkatan</label>
+                            <span id="confirm-waktu">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-row">
+                        <div class="detail-item">
+                            <label>Jumlah Tiket</label>
+                            <span id="confirm-jumlah">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Total Harga</label>
+                            <span id="confirm-harga" class="price">-</span>
+                        </div>
+                    </div>
+
+                    <div class="seat-info">
+                        <label>Nomor Kursi</label>
+                        <div id="confirm-seats" class="seat-numbers">-</div>
+                    </div>
+                </div>
+
+                <div class="ticket-footer">
+                    <div class="footer-info">
+                        <p><strong>Catatan Penting:</strong></p>
+                        <ul>
+                            <li>Harap tiba 30 menit sebelum keberangkatan</li>
+                            <li>Bawa identitas diri yang valid</li>
+                            <li>Simpan tiket ini hingga perjalanan selesai</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ticket-actions">
+                    <button class="btn-print" onclick="printTicket()">
+                        <i class="fas fa-print"></i>
+                        Cetak Tiket
+                    </button>
+                    <button class="btn-download" onclick="downloadTicket()">
+                        <i class="fas fa-download"></i>
+                        Download PDF
+                    </button>
+                    <button class="btn-close" onclick="closeTicketModal()">
+                        <i class="fas fa-times"></i>
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    <script src="confirm.js"></script>
+    <script src="main.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
